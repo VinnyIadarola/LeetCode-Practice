@@ -14,23 +14,20 @@
 14    for(int i = 0; i < numRows; i++) {
 15        triangle[i] = malloc((i+1) * sizeof(int));
 16        (*returnColumnSizes)[i] = i+1;
-17    }
-18
-19
-20    for(int i = 0; i < numRows; i++) {
-21        triangle[i][0] = 1;
-22        triangle[i][i] = 1;
-23
-24        for(int j = 1; j < i; j++) {
-25            triangle[i][j] = triangle[i - 1][j - 1] + triangle[i-1][j];
-26        }
-27    }
+17
+18        triangle[i][0] = 1;
+19        triangle[i][i] = 1;
+20
+21        for(int j = 1; j < i; j++) {
+22            triangle[i][j] = triangle[i - 1][j - 1] + triangle[i-1][j];
+23        }
+24    }
+25
+26
+27    
 28
 29
-30    
+30
 31
-32
-33
-34
-35    return triangle;
-36}
+32    return triangle;
+33}
