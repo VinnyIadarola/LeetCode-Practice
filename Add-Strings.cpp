@@ -15,11 +15,11 @@
 15            char c2 = (it2 != num2.rend()) ? *(it2++) : '0';
 16
 17            char to_add = (carry) ? c1 + c2 + '1' - ('0' * 2) : c1 + c2 - ('0' * 1);
-18            
+18
 19            carry = (to_add - '0') > 9;
 20            to_add = ((to_add - '0') % 10) + '0';
 21            
-22            output.push_back(static_cast<char>(to_add));
+22            output.push_back(to_add);
 23        
 24        }
 25
