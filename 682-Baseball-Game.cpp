@@ -1,15 +1,3 @@
-#include <numeric>
-template <typename T>
-std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
-    os << "[ ";
-
-    for (const auto& x : vec) {
-        os << x << " ";
-    }
-
-    return os << "]";
-}
-
 class Solution {
 public:
     int calPoints(vector<string>& operations) {
@@ -30,7 +18,7 @@ public:
                 scores.push_back(dub_score);
 
             } else if(op == "C") {
-                scores.erase(scores.end() - 1);
+                scores.pop_back();
 
 
             } else {
