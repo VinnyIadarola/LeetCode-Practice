@@ -2,29 +2,24 @@ class Solution:
     def findDisappearedNumbers(self, nums: list[int]) -> list[int]:
         nums.append(None)
 
-        while True:
-            moved_num = False
-            for i in range(0, len(nums)):
-                curr = nums[i]
-                if curr is None or curr == i:
-                    continue
+        for i in range(0, len(nums)):
+
+            curr = nums[i]
+            nums[i] = None
+
+            while curr is not None:
+                in_my_spot = nums[curr] 
                 
-                mover = nums[curr] 
-                moved_num = True
-                
-                if mover == curr:
-                    nums[i] = None
+                if in_my_spot == curr:
+                    break
                 else:
                     nums[curr] = curr
-                    nums[i] = mover
+                    curr = in_my_spot
+            
                 
-            if not moved_num:
-                break
 
         out = []
         for i in range(1, len(nums)):
             if nums[i] is None:
                 out.append(i)
         return out
-
-e
